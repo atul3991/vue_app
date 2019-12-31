@@ -9,7 +9,6 @@
         <br/>
         <roles :rolesData="rolesData" v-if="showRoles"/>
         <br/>
-        <!-- As read from mock data JSON: {{parentRolesGroupJson}} -->
     </div>
 </template>
 

@@ -33,23 +33,28 @@ var parentRolesGroup = {
             "role_group_name": "Client Admin",
             "roles":[{
                 "role_name": "Read access",
-                "role_id": 200001
+                "role_id": 200001,
+                "display": true
             },
             {
                 "role_name": "Edit access",
-                "role_id": 200002
+                "role_id": 200002,
+                "display": true
             },
             {
                 "role_name": "Create access",
-                "role_id": 200003
+                "role_id": 200003,
+                "display": true
             },
             {
                 "role_name": "Delete access",
-                "role_id": 200004
+                "role_id": 200004,
+                "display": true
             },
             {
                 "role_name": "Approval access",
-                "role_id": 200005
+                "role_id": 200005,
+                "display": true
             }]
         },
         {
@@ -57,23 +62,28 @@ var parentRolesGroup = {
             "role_group_name": "Warehouse Admin",
             "roles":[{
                 "role_name": "Operational access",
-                "role_id": 200006
+                "role_id": 200006,
+                "display": true
             },
             {
                 "role_name": "Report access",
-                "role_id": 200007
+                "role_id": 200007,
+                "display": true
             },
             {
                 "role_name": "Managerial access",
-                "role_id": 200008
+                "role_id": 200008,
+                "display": true
             },
             {
                 "role_name": "Database access",
-                "role_id": 200009
+                "role_id": 200009,
+                "display": true
             },
             {
                 "role_name": "Update stock access",
-                "role_id": 200010
+                "role_id": 200010,
+                "display": true
             }]
         },
         {
@@ -81,19 +91,23 @@ var parentRolesGroup = {
             "role_group_name": "Account Admin",
             "roles":[{
                 "role_name": "Add user",
-                "role_id": 200011
+                "role_id": 200011,
+                "display": true
             },
             {
                 "role_name": "Delete user",
-                "role_id": 200012
+                "role_id": 200012,
+                "display": true
             },
             {
                 "role_name": "Update user",
-                "role_id": 200013
+                "role_id": 200013,
+                "display": true
             },
             {
                 "role_name": "Read user",
-                "role_id": 200014
+                "role_id": 200014,
+                "display": true
             }]
         },
         {
@@ -101,27 +115,33 @@ var parentRolesGroup = {
             "role_group_name": "Catalogue Admin",
             "roles":[{
                 "role_name": "Stocks manager",
-                "role_id": 200015
+                "role_id": 200015,
+                "display": true
             },
             {
                 "role_name": "Update Catalogue",
-                "role_id": 200016
+                "role_id": 200016,
+                "display": true
             },
             {
                 "role_name": "View Catalogue",
-                "role_id": 200017
+                "role_id": 200017,
+                "display": true
             },
             {
                 "role_name": "Delete Catalogue",
-                "role_id": 200018
+                "role_id": 200018,
+                "display": true
             },
             {
                 "role_name": "Share Catalogue",
-                "role_id": 200019
+                "role_id": 200019,
+                "display": true
             },
             {
                 "role_name": "Create Catalogue",
-                "role_id": 200020
+                "role_id": 200020,
+                "display": true
             }]
         }]
     },
@@ -133,7 +153,8 @@ var parentRolesGroup = {
             "role_group_name": "Test Admin",
             "roles":[{
                 "role_name": "Read access",
-                "role_id": 200099
+                "role_id": 200099,
+                "display": true
             }]
         }]
     }],
@@ -145,23 +166,28 @@ var parentRolesGroup = {
             "role_group_name": "yyyyy",
             "roles":[{
                 "role_name": "dfvfdv access",
-                "role_id": 200001
+                "role_id": 200001,
+                "display": true
             },
             {
                 "role_name": "dc d",
-                "role_id": 200002
+                "role_id": 200002,
+                "display": true
             },
             {
                 "role_name": "Create access",
-                "role_id": 200003
+                "role_id": 200003,
+                "display": true
             },
             {
                 "role_name": "Delete access",
-                "role_id": 200004
+                "role_id": 200004,
+                "display": true
             },
             {
                 "role_name": "Approval access",
-                "role_id": 200005
+                "role_id": 200005,
+                "display": true
             }]
         },
         {
@@ -169,23 +195,28 @@ var parentRolesGroup = {
             "role_group_name": "Warehouse Admin",
             "roles":[{
                 "role_name": "Operational access",
-                "role_id": 200006
+                "role_id": 200006,
+                "display": true
             },
             {
                 "role_name": "Report access",
-                "role_id": 200007
+                "role_id": 200007,
+                "display": true
             },
             {
                 "role_name": "Managerial access",
-                "role_id": 200008
+                "role_id": 200008,
+                "display": true
             },
             {
                 "role_name": "Database access",
-                "role_id": 200009
+                "role_id": 200009,
+                "display": true
             },
             {
                 "role_name": "Update stock access",
-                "role_id": 200010
+                "role_id": 200010,
+                "display": true
             }]
         },
         {
@@ -193,19 +224,23 @@ var parentRolesGroup = {
             "role_group_name": "Account Admin",
             "roles":[{
                 "role_name": "Add user",
-                "role_id": 200011
+                "role_id": 200011,
+                "display": true
             },
             {
                 "role_name": "Delete user",
-                "role_id": 200012
+                "role_id": 200012,
+                "display": true
             },
             {
                 "role_name": "Update user",
-                "role_id": 200013
+                "role_id": 200013,
+                "display": true
             },
             {
                 "role_name": "Read user",
-                "role_id": 200014
+                "role_id": 200014,
+                "display": true
             }]
         },
         {
@@ -213,27 +248,33 @@ var parentRolesGroup = {
             "role_group_name": "Catalogue Admin",
             "roles":[{
                 "role_name": "Stocks manager",
-                "role_id": 200015
+                "role_id": 200015,
+                "display": true
             },
             {
                 "role_name": "Update Catalogue",
-                "role_id": 200016
+                "role_id": 200016,
+                "display": true
             },
             {
                 "role_name": "View Catalogue",
-                "role_id": 200017
+                "role_id": 200017,
+                "display": true
             },
             {
                 "role_name": "Delete Catalogue",
-                "role_id": 200018
+                "role_id": 200018,
+                "display": true
             },
             {
                 "role_name": "Share Catalogue",
-                "role_id": 200019
+                "role_id": 200019,
+                "display": true
             },
             {
                 "role_name": "Create Catalogue",
-                "role_id": 200020
+                "role_id": 200020,
+                "display": true
             }]
         }]
     }]

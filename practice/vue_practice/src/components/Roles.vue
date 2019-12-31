@@ -25,9 +25,11 @@
                             </span>
                         </h3>
                         <ul id="roles_ul">
-                            <li v-for="roles in roleGroup.roles" :key="roles.role_id">
-                                <input type="checkbox" :id="roles.role_id">
-                                <label for="roles.role_id"> {{ roles.role_name}} </label>
+                            <li v-for="(roles, index3) in roleGroup.roles" :key="roles.role_id">
+                                <span v-if="roles.display">
+                                    <label :id="roles.role_id"> {{ roles.role_name}} </label>
+                                    <button v-on:click="removeRole(index,index2, index3, roles)" style="outline:none; border: none; padding: 0; background: none; cursor:pointer;"><img src="../../images/delete_icon.png" height="14" width="14" /></button>
+                                </span>
                             </li>
                         </ul>
                         <hr v-if="index == rolesData.length - 1 || index2 != parent.role_groups.length - 1"/>
@@ -37,7 +39,7 @@
             </li>
         </ul>
         <br/>
-        <button>Save</button> &nbsp;
+        <button v-on:click="saveRoles(rolesToRemove)">Save</button> &nbsp;
         <button>Cancel</button>
     </div>
 </template>
@@ -45,6 +47,11 @@
 
 <script>
 export default {
+    data(){
+        return{
+            rolesToRemove:[]
+        }
+    },
     props: ['rolesData'],
     methods: {
         showDiv(id) {
@@ -64,8 +71,10 @@ export default {
             var data = JSON.parse(localStorage.getItem('parentRolesGroup'));
             data[document.querySelector("select[name=clients]").value][index].role_groups.push(newRoleGroup);
             localStorage.setItem('parentRolesGroup', JSON.stringify(data));
+            this.rolesData=data[document.querySelector("select[name=clients]").value];
         },
         addRoles(index, index2) {
+            debugger;
             var newRoleId = JSON.parse(localStorage.getItem('newRoleId'));
             var newRole = {
                 "role_id": newRoleId,
@@ -75,6 +84,23 @@ export default {
             var data = JSON.parse(localStorage.getItem('parentRolesGroup'));
             data[document.querySelector("select[name=clients]").value][index].role_groups[index2].roles.push(newRole);
             localStorage.setItem('parentRolesGroup', JSON.stringify(data));
+            this.rolesData=data[document.querySelector("select[name=clients]").value];
+        },
+        removeRole(index, index2, index3, roles) {
+            this.rolesToRemove.push({
+                "client_id": document.querySelector("select[name=clients]").value,
+                "parent_role_group_index": index,
+                "role_group_index": index2,
+                "role_index": index3
+            });
+            roles.display=false;
+        },
+        saveRoles(rolesToRemove) {
+            var parentRolesGroup = JSON.parse(localStorage.getItem('parentRolesGroup'));
+            for(var i=0; i<rolesToRemove.length; i++){
+                parentRolesGroup[rolesToRemove[i].client_id][rolesToRemove[i].parent_role_group_index].role_groups[rolesToRemove[i].role_group_index].roles.splice([rolesToRemove[i].role_index],1)
+            }
+            localStorage.setItem('parentRolesGroup', JSON.stringify(parentRolesGroup));
         }
     }
 }
