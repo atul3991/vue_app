@@ -19,7 +19,7 @@
                             <button v-on:click="showDiv(roleGroup.role_group_id)" style="outline:none; border: none; padding: 0; background: none; cursor:pointer;"><img src="../../images/add_button.png" height="16" width="16" /></button>
                             <span :id="roleGroup.role_group_id" :ref="roleGroup.role_group_id" :hidden=true>
                                 &nbsp;
-                                <input :id="'new_role_'+index2" type=text /> &nbsp;
+                                <autocomplete :search.sync="newRole" :items="['Test1', 'Test2', 'Test3', 'Tesdcd', 'Tejbbhj', 'tgvvhgghv']"/>
                                 <button v-on:click="addRoles(index, index2)">Add</button> &nbsp;
                                 <button v-on:click="hideDiv(roleGroup.role_group_id)">Cancel</button>
                             </span>
@@ -40,16 +40,22 @@
         </ul>
         <br/>
         <button v-on:click="saveRoles(rolesToRemove)">Save</button> &nbsp;
-        <button>Cancel</button>
+        <button v-on:click="cancelRolesSave()">Cancel</button>
     </div>
 </template>
 
 
 <script>
+import autocomplete from "@/components/autocomplete.vue"
 export default {
+    components:{
+        autocomplete
+    },
     data(){
         return{
-            rolesToRemove:[]
+            rolesToRemove:[],
+            rolesArray:[],
+            newRole:''
         }
     },
     props: ['rolesData'],
@@ -75,16 +81,28 @@ export default {
         },
         addRoles(index, index2) {
             debugger;
-            var newRoleId = JSON.parse(localStorage.getItem('newRoleId'));
-            var newRole = {
-                "role_id": newRoleId,
-                "role_name": document.querySelector("input[id=new_role_"+index2+"]").value
-            };
-            localStorage.setItem('newRoleId', newRoleId+1);
-            var data = JSON.parse(localStorage.getItem('parentRolesGroup'));
-            data[document.querySelector("select[name=clients]").value][index].role_groups[index2].roles.push(newRole);
-            localStorage.setItem('parentRolesGroup', JSON.stringify(data));
-            this.rolesData=data[document.querySelector("select[name=clients]").value];
+            var roles = JSON.parse(localStorage.getItem('roles'));
+            var newRoleName = this.newRole;
+            var isValidRole = false;
+            for(var i=0; i<roles.length; i++) {
+                if(roles[i].role_name == newRoleName) {
+                    isValidRole = true;
+                    var newRole = {
+                        "role_id": roles[i].role_id,
+                        "role_name": newRoleName,
+                        "display": true
+                    };
+                    var data = JSON.parse(localStorage.getItem('parentRolesGroup'));
+                    data[document.querySelector("select[name=clients]").value][index].role_groups[index2].roles.push(newRole);
+                    localStorage.setItem('parentRolesGroup', JSON.stringify(data));
+                    this.rolesData=data[document.querySelector("select[name=clients]").value];
+                    this.newRole = "";
+                    break;
+                }
+            }
+            if(!isValidRole) {
+                alert("Enter a valid Role...!!!");
+            }
         },
         removeRole(index, index2, index3, roles) {
             this.rolesToRemove.push({
@@ -93,6 +111,7 @@ export default {
                 "role_group_index": index2,
                 "role_index": index3
             });
+            this.rolesArray.push(roles);
             roles.display=false;
         },
         saveRoles(rolesToRemove) {
@@ -101,6 +120,15 @@ export default {
                 parentRolesGroup[rolesToRemove[i].client_id][rolesToRemove[i].parent_role_group_index].role_groups[rolesToRemove[i].role_group_index].roles.splice([rolesToRemove[i].role_index],1)
             }
             localStorage.setItem('parentRolesGroup', JSON.stringify(parentRolesGroup));
+        },
+        cancelRolesSave() {
+            if(this.rolesArray.length != 0 && confirm("Changes made will be lost. Do you wish to proceed? ")){
+                this.rolesToRemove=[];
+                for(var i=0; i<this.rolesArray.length; i++) {
+                    this.rolesArray[i].display = true;
+                }
+                this.rolesArray = [];
+            }
         }
     }
 }

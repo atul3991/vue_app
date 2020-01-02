@@ -280,10 +280,139 @@ var parentRolesGroup = {
     }]
 };
 
+var roles = [{
+    "role_name": "Read access",
+    "role_id": 200001
+},
+{
+    "role_name": "Edit access",
+    "role_id": 200002
+},
+{
+    "role_name": "Create access",
+    "role_id": 200003
+},
+{
+    "role_name": "Delete access",
+    "role_id": 200004
+},
+{
+    "role_name": "Approval access",
+    "role_id": 200005
+},
+{
+    "role_name": "Operational access",
+    "role_id": 200006 
+},
+{
+    "role_name": "Report access",
+    "role_id": 200007 
+},
+{
+    "role_name": "Managerial access",
+    "role_id": 200008 
+},
+{
+    "role_name": "Database access",
+    "role_id": 200009 
+},
+{
+    "role_name": "Update stock access",
+    "role_id": 200010 
+},
+{
+    "role_name": "Add user",
+    "role_id": 200011 
+},
+{
+    "role_name": "Delete user",
+    "role_id": 200012 
+},
+{
+    "role_name": "Update user",
+    "role_id": 200013 
+},
+{
+    "role_name": "Read user",
+    "role_id": 200014 
+},
+{
+    "role_name": "Stocks manager",
+    "role_id": 200015 
+},
+{
+    "role_name": "Update Catalogue",
+    "role_id": 200016 
+},
+{
+    "role_name": "View Catalogue",
+    "role_id": 200017 
+},
+{
+    "role_name": "Delete Catalogue",
+    "role_id": 200018 
+},
+{
+    "role_name": "Share Catalogue",
+    "role_id": 200019 
+},
+{
+    "role_name": "Create Catalogue",
+    "role_id": 200020 
+},
+{
+    "role_name": "dfvfdv access",
+    "role_id": 200021 
+},
+{
+    "role_name": "dc d",
+    "role_id": 200022
+},
+{
+    "role_name": "Test1",
+    "role_id": 200023
+},
+{
+    "role_name": "Test2",
+    "role_id": 200024
+},
+{
+    "role_name": "Test3",
+    "role_id": 200025
+},
+{
+    "role_name": "Test4",
+    "role_id": 200026
+},
+{
+    "role_name": "Test5",
+    "role_id": 200027
+},
+{
+    "role_name": "Test6",
+    "role_id": 200028
+},
+{
+    "role_name": "Test7",
+    "role_id": 200029
+},
+{
+    "role_name": "Test8",
+    "role_id": 200030
+},
+{
+    "role_name": "Test9",
+    "role_id": 200031
+},
+{
+    "role_name": "Test10",
+    "role_id": 200032
+}];
+
 localStorage.setItem('clients', JSON.stringify(clients));
 localStorage.setItem('parentRolesGroup', JSON.stringify(parentRolesGroup));
 localStorage.setItem('newRoleGroupId', 1000000001);
-localStorage.setItem('newRoleId', 2000000001);
+localStorage.setItem('roles', JSON.stringify(roles));
 export default {
     name: "roles",
     components: {
