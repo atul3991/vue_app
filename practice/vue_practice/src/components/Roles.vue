@@ -58,7 +58,7 @@ export default {
             newRole:''
         }
     },
-    props: ['rolesData'],
+    props: ['rolesData','clientId'],
     methods: {
         showDiv(id) {
             this.$refs[id][0].hidden=false;
@@ -75,12 +75,11 @@ export default {
             };
             localStorage.setItem('newRoleGroupId', newRoleGroupId+1);
             var data = JSON.parse(localStorage.getItem('parentRolesGroup'));
-            data[document.querySelector("select[name=clients]").value][index].role_groups.push(newRoleGroup);
+            data[this.clientId][index].role_groups.push(newRoleGroup);
             localStorage.setItem('parentRolesGroup', JSON.stringify(data));
-            this.rolesData=data[document.querySelector("select[name=clients]").value];
+            this.rolesData=data[this.clientId];
         },
         addRoles(index, index2) {
-            debugger;
             var roles = JSON.parse(localStorage.getItem('roles'));
             var newRoleName = this.newRole;
             var isValidRole = false;
@@ -93,9 +92,9 @@ export default {
                         "display": true
                     };
                     var data = JSON.parse(localStorage.getItem('parentRolesGroup'));
-                    data[document.querySelector("select[name=clients]").value][index].role_groups[index2].roles.push(newRole);
+                    data[this.clientId][index].role_groups[index2].roles.push(newRole);
                     localStorage.setItem('parentRolesGroup', JSON.stringify(data));
-                    this.rolesData=data[document.querySelector("select[name=clients]").value];
+                    this.rolesData=data[this.clientId];
                     this.newRole = "";
                     break;
                 }
@@ -106,7 +105,7 @@ export default {
         },
         removeRole(index, index2, index3, roles) {
             this.rolesToRemove.push({
-                "client_id": document.querySelector("select[name=clients]").value,
+                "client_id": this.clientId,
                 "parent_role_group_index": index,
                 "role_group_index": index2,
                 "role_index": index3
